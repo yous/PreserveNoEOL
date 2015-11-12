@@ -64,7 +64,8 @@ def noeol():
 	    trunc(file, end_pos + 1)
 	elif last_line.endswith("\r"):
 	    trunc(file, end_pos + 1)
-    except Exception as e:
+    except Exception:
+	e = sys.exc_info()[1]
 	vim.command("let python_errmsg = '%s'" % str(e).replace("'", "''"))
 EOF
     let s:isPythonInitialized = 1
